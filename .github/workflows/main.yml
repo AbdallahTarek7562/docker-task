@@ -2,8 +2,7 @@ name: Docker Build & Push
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build:
@@ -20,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build image
-        run: docker build -t abdallahtarek7562/docker-task:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/abdallah-tarek_2022040288:latest .
 
       - name: Push image
-        run: docker push abdallahtarek7562/docker-task:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/abdallah-tarek_2022040288:latest
